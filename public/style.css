@@ -74,5 +74,10 @@ button i {
   right:15px;
   font-size:22px;
   color:red;
+  user-select: none;
+  pointer-events: auto;
   cursor:pointer;
+}
+.note-text:focus {
+  outline: none;
 }
