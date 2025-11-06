@@ -79,8 +79,6 @@ const loginUser = async (req, res) => { //create loginUser function
 };
 
 
-
-
 // export the controller functionn
 module.exports = { registerUser, loginUser };
 
