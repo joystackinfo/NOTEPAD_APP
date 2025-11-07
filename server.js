@@ -5,7 +5,7 @@ const noteRoutes = require("./routes/note.route.js");
 const mongoose = require('mongoose');
  const userRoutes = require('./routes/user.routes.js');
 const app = express()
-const verifyToken = require('./middleware/authMiddleware.js');
+const verifyToken = require('./middleware/authmiddleware.js');
 require('dotenv').config();
 
 

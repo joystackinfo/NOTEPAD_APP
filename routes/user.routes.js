@@ -1,7 +1,7 @@
 const express = require('express');
 const {registerUser ,loginUser} = require('../controllers/user.controller'); //import function fro controller
 const router = express.Router();
-const verifyToken = require('../middleware/authMiddleware.js');
+const verifyToken = require('../middleware/authmiddleware.js');
 
 
 router.get('/', (req, res) => {

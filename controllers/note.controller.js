@@ -22,12 +22,11 @@ const createNote = async (req, res) => {
     }
 
 
-}
+};
 
+//GET USER NOTES CONTROLLER
+const getUserNotes = async (req, res) => {
 
-//GET ALL NOTES CONTROLER
-  const getUserNotes = async (req, res) => {
-     
     try {
         const userId  = req.user.id; // get user ID from verified token
         const notes = await Note.find({userId}); // find all the note linked to the user
@@ -36,7 +35,7 @@ const createNote = async (req, res) => {
     } catch (error) {
         console.error(error);
     }
-
+  };
 
 //UPDATE NOTE CONTROLLER(put)
    const updateNote = async (req, res) => {
@@ -62,7 +61,7 @@ const createNote = async (req, res) => {
         
         res.status(500).json ({message: "Error updating note" , error: error.message});
     }
-   }
+   };
 
 
 //DELETE NOTE CONTROLLER
@@ -84,9 +83,6 @@ const deleteNote = async (req, res) => {
 };
 
 
-
-
-)
 
 module.exports = {
     createNote,
