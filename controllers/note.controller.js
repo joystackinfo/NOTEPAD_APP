@@ -38,8 +38,59 @@ const createNote = async (req, res) => {
     }
 
 
-//UPDATE NOTE CONTROLLER
+//UPDATE NOTE CONTROLLER(put)
+   const updateNote = async (req, res) => {
+       try {
+        const {id} = req.params; // get the note id from url
+        const {content} = req.body; // get the updated content from request body
+        const updatedNote = await Note.findByIdAndUpdate(
+            id,
+            {content},
+            {new: true} // return the updated note
+        );
+
+        if (!updatedNote) {
+            return res.status(404).json({msg: "Note not found"});
+        }
+
+        res.status(200).json({
+            msg: "Note updated successfully", 
+            note: updatedNote
+        });
+
+       } catch (error) {
+        
+        res.status(500).json ({message: "Error updating note" , error: error.message});
+    }
+   }
+
+
+//DELETE NOTE CONTROLLER
+
+const deleteNote = async (req, res) => {
+  try {
+    const { id } = req.params; //get note id from url
+
+    const deletedNote = await Note.findByIdAndDelete(id); //find note by id and delete
+
+    if (!deletedNote) {
+      return res.status(404).json({ message: "Note not found" }); //if note not found send 404
+    }
+
+    res.status(200).json({ message: "Note deleted successfully" }); //send success message if deleted
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting note", error: error.message });//send error message if error occurs
+  }
+};
+
 
 
 
 )
+
+module.exports = {
+    createNote,
+    getUserNotes,
+    updateNote,
+    deleteNote
+};
