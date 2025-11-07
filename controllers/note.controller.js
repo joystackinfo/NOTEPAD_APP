@@ -31,14 +31,14 @@ const createNote = async (req, res) => {
     try {
         const userId  = req.user.id; // get user ID from verified token
         const notes = await Note.find({userId}); // find all the note linked to the user
-        r
+        res.status(200).json({notes}); // send the notes to frontend
         
     } catch (error) {
-        
+        console.error(error);
     }
 
 
-
+//UPDATE NOTE CONTROLLER
 
 
 
