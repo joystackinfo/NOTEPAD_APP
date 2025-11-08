@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const notesSection = document.querySelector('.notesSection');
   const createBtn = document.querySelector('.btn');
 
+  if (createBtn) {
+    createBtn.addEventListener("click", () => {
+      renderNote();
+    });
+  }   // create new note box
+
+
+});
 // Render function — creates and displays a single note
 function renderNote(noteContent = "") {
   const noteWrapper = document.createElement("div");
@@ -61,5 +69,3 @@ function renderNote(noteContent = "") {
   notesSection.appendChild(noteWrapper);
 }
 
- 
-});

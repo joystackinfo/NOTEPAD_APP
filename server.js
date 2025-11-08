@@ -13,6 +13,7 @@ require('dotenv').config();
 
 //MIDDLEWARE
 app.use(express.json()) // Allow express to parse json
+app.use(cors());
 app.use(express.urlencoded({extended:false})) // Allow express to parse urlencoded data
 
 

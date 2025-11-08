@@ -1,4 +1,4 @@
-/* ====== REGISTER PAGE STYLE ====== */
+/* ====== REGISTER STYLE ====== */
 body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #e9d5ff, #f5f3ff); /* soft lilac gradient */
@@ -65,11 +65,9 @@ button {
   margin-top: 15px;
   transition: all 0.3s ease;
 }
-
 button:hover {
-  background: linear-gradient(135deg, #7e22ce, #9333ea);
+  background: linear-gradient(135deg, #a855f7, #9333ea);
 }
-
 p {
   margin-top: 1rem;
   font-size: 14px;

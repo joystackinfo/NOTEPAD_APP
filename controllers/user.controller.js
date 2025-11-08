@@ -6,8 +6,11 @@ const User = require('../models/user.model');
 //REGISTER CONTROLLER
 
 const registerUser = async (req, res) => { //create registerUser function
+  console.log(req.body);
+
   try {
-    const { username, age, password } = req.body; //get username, age and password from request body
+    const { username, password } = req.body; //get username and password from request body
+    const age = Number(req.body.age); //convert age to number
 
     const exist = await User.findOne({ username }); //check if user already exists
     if (exist) {
@@ -24,10 +27,10 @@ const registerUser = async (req, res) => { //create registerUser function
        res.status(201).json({ msg: "User registered successfully", user });
     
   } catch (error) {
+      console.error("Error in registerUser:", error);
     res.status(500).json({ message: error.message });
   }
 };
-
 
 
 
@@ -56,8 +59,8 @@ const loginUser = async (req, res) => { //create loginUser function
     // If credentials are correct, generate JWT token
     const token = jwt.sign(
       { id: user._id, username: user.username }, // payload
-      process.env.JWT_SECRET,                   // secret key from .env
-      { expiresIn: "1h" }                       // token expires in 1 hour
+      process.env.JWT_SECRET,                   // secret key 
+      { expiresIn: "2h" }                       // token expires in 2 hour
     );
 
     // Send success response with user info and token

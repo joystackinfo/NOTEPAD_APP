@@ -1,16 +1,28 @@
-// Register User
 const registerForm = document.getElementById('registerForm');
+
 registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const username = document.getElementById('registerUsername').value.trim();
-  const password = document.getElementById('registerPassword').value.trim();
+  const username = document.getElementById('username').value.trim();
+  const age = document.getElementById('age').value.trim(); 
+  const password = document.getElementById('password').value.trim();
+
+  //Validate before sending
+  if (!username || !age || !password) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  if (isNaN(age) || age <= 0) {
+    alert("Please enter a valid age");
+    return;
+  }
 
   try {
     const res = await fetch("http://localhost:3000/api/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, password, age })
     });
 
     const data = await res.json();
@@ -22,7 +34,7 @@ registerForm.addEventListener('submit', async (e) => {
       alert(data.msg || "Registration failed");
     }
   } catch (error) {
-    console.error(error);
+    console.error("Fetch error:", error);
     alert("An error occurred during registration");
   }
 });
