@@ -7,9 +7,9 @@ registerForm.addEventListener('submit', async (e) => {
   const age = document.getElementById('age').value.trim(); 
   const password = document.getElementById('password').value.trim();
 
-  //Validate before sending
+
   if (!username || !age || !password) {
-    alert("Please fill in all fields");
+    alert("Please fill in all fields"); //validate before sending
     return;
   }
 
