@@ -97,7 +97,7 @@ Response:
 ]
 
 
-##  POST /api/notes/:id
+POST /api/notes/:id
 Updates a note by its ID.
 
 Headers:
