@@ -34,37 +34,101 @@ JWT – authentication tokens
 bcrypt – password encryption
 
 
-# PROJECT STRUCTURE
-project/
-│
-├── controllers/
-│   ├── note.controller.js       # Handles CRUD operations for notes
-│   └── user.controller.js       # Handles registraton and login
-│
-├── middleware/
-│   └── authMiddleware.js        #Protects routes with authentication
-│
-├── models/
-│   ├── note.model.js            # Note schema
-│   └── user.model.js            # User schema
-│
-├── public/                      #Frontend files
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── login.css
-│   ├── register.css
-|   ├── style.css
-|   ├── login.js
-|   ├── register.js
-│   └── script.js
-│
-├── routes/n     
-│   ├── user.route.js         #Routes for login and registeration
-│   └── note.route.js         # Routes for notes CRUD
+# Authentication Flow
 
-│
-├── server.js
-├── README.md                  # Project documentation
-├── package.json               # Project dependencies and scripts
-└── package-lock.json          # Exact versions of installed packages
+The user fills out the registration form, which sends the data to the backend to create an account.
+ During login, the form generates a JWT token, which is saved in local storage. 
+ After a successful login, the Notepad app is displayed for the user.
+  This ensures that each user has a secure account, and their notes are only accessible to them.
+
+ ##  User Authentication
+
+### POST /api/users/login
+Logs in a user and returns a JWT token.
+
+**Request Body**:
+```json
+{
+  "username": "yourUsername",
+  "password": "yourPassword"
+}
+Responde:
+{
+  "message": "Login successful",
+  "token": "xxx"
+}
+
+## POST /api/notes
+Creates a new note for the logged-in user.
+
+**Headers:
+
+Content-Type: application/json
+
+Authorization: Bearer <token>
+
+ ** Request Body:
+{
+  "title": "My Note",
+  "content": "This is the content of my note."
+}
+
+Response:
+{
+  "message": "Note created",
+  "note": {
+    "title": "...",
+    "content": "..."
+  }
+}
+
+## GET /api/notes
+Retrieves all notes for the logged-in user.
+
+Headers:
+Authorization: Bearer <token>
+
+Response:
+[
+  { 
+    "title": "Note1", "content": "..."},
+
+  { "title": "Note2", "content": "..." }
+]
+
+
+##  POST /api/notes/:id
+Updates a note by its ID.
+
+Headers:
+Content-Type: application/json
+Authorization: Bearer <token>
+ Request Boby
+{
+  "title": "Updated Note",
+  "content": "Updated content here."
+}
+
+Responde:
+{
+  "message": "Note updated",
+  "note": {
+    "title": "Updated Note",
+    "content": " ...."
+  }
+}
+
+ ## DELETE /api/notes/:id
+  Delete a note by its ID
+
+  Headers:
+Authorization: Bearer <token>
+
+Responde:
+{
+  "message": "Note deleted"
+}
+
+
+
+
