@@ -100,7 +100,7 @@ All notes are **user-specific**, meaning only your notes are visible to you.
 
 ## 📬 Contact
 
-For questions or feedback, reach out  vai email at [joynelsoninfo@gmail.com]
+For questions or feedback, reach out  via email at [joynelsoninfo@gmail.com]
 
 ## 🎉 Conclusion 🏁
 
