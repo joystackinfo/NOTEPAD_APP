@@ -106,5 +106,3 @@ For questions or feedback, reach out  via email at [joynelsoninfo@gmail.com]
 ## 🎉 Conclusion 🏁
 
 The Notepad App showcases a secure, full‑stack application with authentication and user protection. It's a great foundation for larger projects and real-world applications.
-
-Thanks for reading! ✨
