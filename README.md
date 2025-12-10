@@ -97,6 +97,7 @@ All notes are **user-specific**, meaning only your notes are visible to you.
 
 **Tools:** Nodemon, Postman
 
+---
 
 ## 📬 Contact
 
