@@ -20,7 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = editableText.textContent.trim();
       if (!content) {
         alert("Note cannot be empty!"); //Add the save button
-        return;
+        return
+        
+        
+        
+        
+      ;
       }
 
       try {
