@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Note = require("../models/note.model.js");
 const verifyToken = require('../middleware/authmiddleware.js');
-const { createNote, getUserNotes, updateNote, deleteNote } = require("../controllers/note.controller.js");
+const { createNote, getUserNotes, updateNote, deleteNote } = require("../controllers/note.controller.js"); // import controller functions
 
 
 //Create user
